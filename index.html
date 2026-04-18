@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>For Riya 🤗 </title>
+<link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose:       #b8436a;
+  --rose2:      #d4698a;
+  --rose3:      #eda0b8;
+  --blush:      #f7e0e8;
+  --peach:      #e8907a;
+  --peach2:     #f2bfa8;
+  --gold:       #c49a52;
+  --gold2:      #e8d0a0;
+  --cream:      #fdf7f0;
+  --cream2:     #faeee4;
+  --leaf:       #7a9c72;
+  --leaf2:      #b8d4b0;
+  --ink:        #2c1620;
+  --ink2:       #5a3044;
+  --ink3:       #8a6070;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Jost',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  overflow-x:hidden;
+  position:relative;
+}
+/* GRAIN OVERLAY */
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:1000;
+  opacity:0.4;
+}
+/* FLOATING PETALS */
+.petals{position:fixed;inset:0;pointer-events:none;z-index:5;overflow:hidden;}
+.p{position:absolute;top:-40px;opacity:0;animation:fall linear infinite;}
+@keyframes fall{
+  0%{opacity:0;transform:translateY(0) rotate(0deg) scale(0.5);}
+  8%{opacity:0.9;}
+  92%{opacity:0.5;}
+  100%{opacity:0;transform:translateY(108vh) rotate(360deg) scale(1.2);}
+}
+
+/* ====== HERO ====== */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  padding:0 28px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-bg-flowers{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  pointer-events:none;
+}
+.hero-corners{position:absolute;inset:0;pointer-events:none;}
+.hero-corners .tl{position:absolute;top:-10px;left:-10px;width:200px;opacity:0.55;}
+.hero-corners .tr{position:absolute;top:-10px;right:-10px;width:200px;opacity:0.55;transform:scaleX(-1);}
+.hero-corners .bl{position:absolute;bottom:-10px;left:-10px;width:180px;opacity:0.45;transform:scaleY(-1);}
+.hero-corners .br{position:absolute;bottom:-10px;right:-10px;width:180px;opacity:0.45;transform:scale(-1,-1);}
+
+.hero-eyebrow{
+  font-family:'Jost',sans-serif;
+  font-size:10px;font-weight:500;
+  letter-spacing:5px;text-transform:uppercase;
+  color:var(--rose2);
+  margin-bottom:18px;
+  opacity:0;animation:up 0.9s 0.4s forwards;
+}
+.hero-title{
+  font-family:'Sacramento',cursive;
+  font-size:clamp(80px,24vw,120px);
+  color:var(--rose);
+  line-height:0.88;
+  opacity:0;animation:up 1s 0.6s forwards;
+  text-shadow:0 6px 40px rgba(184,67,106,0.18);
+  position:relative;z-index:2;
+}
+.hero-riya{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,8vw,46px);
+  font-style:italic;font-weight:300;
+  color:var(--peach);
+  letter-spacing:3px;
+  margin-top:6px;
+  opacity:0;animation:up 1s 0.9s forwards;
+}
+.hero-hearts{
+  display:flex;gap:10px;margin:28px 0 20px;
+  opacity:0;animation:up 1s 1.1s forwards;
+}
+.hero-hearts span{font-size:20px;animation:hpulse 1.8s ease-in-out infinite;}
+.hero-hearts span:nth-child(2){animation-delay:0.2s;}
+.hero-hearts span:nth-child(3){animation-delay:0.4s;}
+@keyframes hpulse{0%,100%{transform:scale(1);}50%{transform:scale(1.25);}}
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;font-weight:300;font-style:italic;
+  color:var(--ink3);
+  max-width:280px;
+  line-height:1.7;
+  opacity:0;animation:up 1s 1.3s forwards;
+}
+.scroll-hint{
+  position:absolute;bottom:32px;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  opacity:0;animation:up 1s 2s forwards;
+}
+.scroll-hint span{font-size:10px;letter-spacing:2px;color:var(--rose3);text-transform:uppercase;}
+.scroll-arrow{animation:bob 1.8s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(7px);}}
+@keyframes up{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+/* ====== DIVIDER ====== */
+.floral-divider{
+  display:flex;align-items:center;justify-content:center;
+  gap:0;padding:8px 0;
+  position:relative;
+}
+.floral-divider svg{display:block;}
+
+/* ====== SECTION WRAPPER ====== */
+.section{padding:48px 24px 32px;position:relative;}
+.section-title{
+  font-family:'Sacramento',cursive;
+  font-size:48px;color:var(--rose);
+  text-align:center;margin-bottom:28px;
+  text-shadow:0 2px 16px rgba(184,67,106,0.12);
+}
+
+/* ====== PHOTOS ====== */
+.photo-section{padding:16px 20px 40px;background:var(--cream2);position:relative;overflow:hidden;}
+.photo-section-bg{position:absolute;inset:0;pointer-events:none;opacity:0.07;}
+.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px;}
+.photo-slot{
+  border-radius:22px;overflow:hidden;
+  aspect-ratio:3/4;
+  position:relative;
+  background:linear-gradient(145deg,#f9e8ee,#faf0e8);
+  border:2px dashed var(--rose3);
+  cursor:pointer;
+  transition:transform 0.25s,box-shadow 0.25s;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:8px;
+}
+.photo-slot:first-child{
+  grid-column:1/-1;aspect-ratio:4/3;border-radius:26px;
+  background:linear-gradient(145deg,#f5e0e8,#f8eddf);
+}
+.photo-slot:active{transform:scale(0.97);}
+.photo-slot img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;border-radius:inherit;display:none;
+}
+.photo-slot .slot-icon{font-size:32px;opacity:0.6;}
+.photo-slot .slot-text{
+  font-size:11px;letter-spacing:1px;
+  color:var(--rose2);font-weight:500;text-transform:uppercase;
+  text-align:center;padding:0 12px;
+}
+.photo-slot input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;}
+.photo-slot .frame-corner{
+  position:absolute;width:24px;height:24px;
+  border-color:var(--rose2);border-style:solid;
+  opacity:0.5;
+}
+.photo-slot .frame-corner.tl{top:10px;left:10px;border-width:2px 0 0 2px;border-radius:4px 0 0 0;}
+.photo-slot .frame-corner.tr{top:10px;right:10px;border-width:2px 2px 0 0;border-radius:0 4px 0 0;}
+.photo-slot .frame-corner.bl{bottom:10px;left:10px;border-width:0 0 2px 2px;border-radius:0 0 0 4px;}
+.photo-slot .frame-corner.br{bottom:10px;right:10px;border-width:0 2px 2px 0;border-radius:0 0 4px 0;}
+
+/* ====== LETTER ====== */
+.letter-section{
+  padding:48px 20px 40px;
+  position:relative;
+  background:
+    radial-gradient(ellipse 70% 50% at 20% 30%,rgba(232,144,122,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 60% at 80% 70%,rgba(184,67,106,0.06) 0%,transparent 60%);
+}
+.letter-card{
+  background:white;
+  border-radius:28px;
+  padding:36px 28px 30px;
+  box-shadow:0 8px 60px rgba(184,67,106,0.1),0 2px 16px rgba(184,67,106,0.06);
+  border:1px solid rgba(212,105,138,0.15);
+  position:relative;
+  overflow:hidden;
+}
+.letter-card::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--rose3),var(--peach),var(--gold),var(--peach),var(--rose3));
+}
+.letter-card-roses{
+  position:absolute;bottom:-20px;right:-20px;
+  width:140px;opacity:0.07;pointer-events:none;
+}
+.letter-dear{
+  font-family:'Sacramento',cursive;
+  font-size:36px;color:var(--rose);
+  margin-bottom:20px;
+}
+.letter-body{
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px;font-weight:400;
+  line-height:1.9;color:var(--ink2);
+}
+.letter-body p{margin-bottom:18px;}
+.letter-body p:last-child{margin-bottom:0;}
+.mark{
+  background:linear-gradient(180deg,transparent 58%,rgba(232,144,122,0.35) 58%);
+  padding:0 2px;font-weight:600;color:var(--rose);
+}
+.letter-from{
+  font-family:'Sacramento',cursive;
+  font-size:30px;color:var(--peach);
+  text-align:right;margin-top:24px;
+}
+.letter-deco{
+  position:absolute;top:18px;right:22px;
+  font-size:22px;opacity:0.4;
+}
+
+/* ====== LOVE CARDS ====== */
+.love-section{
+  padding:48px 20px 40px;
+  background:var(--cream2);
+  position:relative;overflow:hidden;
+}
+.love-bg{position:absolute;inset:0;pointer-events:none;opacity:0.05;}
+.love-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.love-card{
+  background:white;
+  border-radius:22px;
+  padding:22px 16px 18px;
+  text-align:center;
+  border:1px solid rgba(212,105,138,0.15);
+  box-shadow:0 2px 20px rgba(184,67,106,0.07);
+  cursor:pointer;
+  transition:transform 0.2s,box-shadow 0.2s;
+  position:relative;overflow:hidden;
+  -webkit-tap-highlight-color:transparent;
+}
+.love-card:active{transform:scale(0.96);}
+.love-card.lit{background:linear-gradient(145deg,#fff5f8,#fff8f2);}
+.love-card .lc-flower{margin-bottom:10px;}
+.love-card .lc-flower svg{width:52px;height:52px;}
+.love-card .lc-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:14px;font-style:italic;
+  color:var(--ink3);line-height:1.5;
+}
+.love-card .lc-burst{
+  position:absolute;font-size:16px;
+  pointer-events:none;
+  animation:burst 0.7s forwards;
+  top:30%;left:50%;
+}
+@keyframes burst{
+  0%{opacity:1;transform:translate(-50%,-50%) scale(0.5);}
+  100%{opacity:0;transform:translate(-50%,-90px) scale(1.6);}
+}
+
+/* ====== GOODNIGHT ====== */
+.goodnight-section{
+  padding:48px 20px 40px;
+  position:relative;
+  text-align:center;
+}
+.goodnight-card{
+  background:linear-gradient(145deg,#1a0a10,#2a1020,#1e0c16);
+  border-radius:28px;
+  padding:36px 24px 32px;
+  position:relative;overflow:hidden;
+  box-shadow:0 12px 50px rgba(0,0,0,0.3);
+}
+.gn-stars{position:absolute;inset:0;pointer-events:none;}
+.gn-star{
+  position:absolute;background:white;border-radius:50%;
+  animation:twinkle ease-in-out infinite;
+}
+@keyframes twinkle{0%,100%{opacity:0.2;}50%{opacity:0.9;}}
+.gn-rose-top{position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:120px;opacity:0.5;}
+.gn-label{
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);margin-bottom:20px;
+  font-weight:500;
+}
+.gn-bubble{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:20px 20px 20px 6px;
+  padding:20px 22px;
+  text-align:left;
+  display:inline-block;
+  max-width:100%;
+  backdrop-filter:blur(6px);
+}
+.gn-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:19px;font-weight:300;
+  line-height:2;
+  color:rgba(255,255,255,0.92);
+}
+.gn-note{
+  margin-top:22px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;font-style:italic;
+  color:rgba(255,180,160,0.8);
+  line-height:1.7;
+  padding:0 8px;
+}
+
+/* ====== PROMISES ====== */
+.promises-section{
+  padding:48px 20px 40px;
+  background:var(--cream2);
+  position:relative;overflow:hidden;
+}
+.promises-bg{position:absolute;inset:0;pointer-events:none;opacity:0.06;}
+.promise-list{display:flex;flex-direction:column;gap:16px;}
+.promise-item{
+  display:flex;gap:16px;align-items:flex-start;
+  background:white;
+  border-radius:18px;
+  padding:18px 18px;
+  border:1px solid rgba(212,105,138,0.12);
+  box-shadow:0 2px 16px rgba(184,67,106,0.05);
+  cursor:pointer;
+  transition:transform 0.15s,background 0.2s;
+  -webkit-tap-highlight-color:transparent;
+}
+.promise-item:active{transform:scale(0.98);}
+.promise-item.done{background:linear-gradient(135deg,#fff5f8,#fff8f2);}
+.promise-check{
+  width:28px;height:28px;border-radius:50%;
+  border:2px solid var(--rose3);
+  flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;color:white;
+  transition:all 0.25s;background:transparent;
+}
+.promise-item.done .promise-check{
+  background:linear-gradient(135deg,var(--rose),var(--peach));
+  border-color:transparent;
+}
+.promise-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;line-height:1.6;color:var(--ink2);
+  font-style:italic;
+  padding-top:2px;
+}
+
+/* ====== FINAL ====== */
+.final-section{
+  padding:48px 24px 60px;
+  text-align:center;position:relative;overflow:hidden;
+}
+.final-big-flower{
+  display:flex;justify-content:center;
+  margin-bottom:24px;
+  animation:slowspin 20s linear infinite;
+}
+@keyframes slowspin{from{transform:rotate(0);}to{transform:rotate(360deg);}}
+.final-verse{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-style:italic;font-weight:300;
+  color:var(--ink2);line-height:2;
+  margin-bottom:36px;
+}
+.final-verse strong{
+  font-weight:600;color:var(--rose);font-style:normal;
+}
+.sorry-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:20px 48px;
+  background:linear-gradient(135deg,var(--rose),var(--peach));
+  color:white;border:none;border-radius:100px;
+  font-family:'Sacramento',cursive;
+  font-size:30px;
+  cursor:pointer;
+  box-shadow:0 8px 32px rgba(184,67,106,0.38),0 2px 8px rgba(184,67,106,0.2);
+  transition:transform 0.15s,box-shadow 0.15s;
+  -webkit-tap-highlight-color:transparent;
+  letter-spacing:0.5px;
+}
+.sorry-btn:active{transform:scale(0.95);box-shadow:0 4px 14px rgba(184,67,106,0.28);}
+.tap-hint{
+  margin-top:12px;
+  font-size:11px;letter-spacing:2px;
+  color:var(--rose3);text-transform:uppercase;font-weight:500;
+}
+/* CONFETTI */
+.confetti-piece{
+  position:fixed;width:9px;height:9px;
+  pointer-events:none;z-index:9999;
+  animation:cfall linear forwards;
+  border-radius:2px;
+}
+@keyframes cfall{
+  0%{opacity:1;transform:translateY(-10px) rotate(0deg);}
+  100%{opacity:0;transform:translateY(85vh) rotate(540deg);}
+}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- Floating petals -->
+<div class="petals" id="petals"></div>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero">
+  <!-- Corner botanical clusters -->
+  <div class="hero-corners">
+    <div class="tl">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Big rose -->
+        <g transform="translate(90,90)">
+          <ellipse rx="30" ry="18" fill="#d4698a" opacity="0.85" transform="rotate(0)"/>
+          <ellipse rx="28" ry="16" fill="#c0526f" opacity="0.8" transform="rotate(45)"/>
+          <ellipse rx="26" ry="14" fill="#b8436a" opacity="0.75" transform="rotate(90)"/>
+          <ellipse rx="22" ry="12" fill="#c0526f" opacity="0.7" transform="rotate(135)"/>
+          <ellipse rx="18" ry="10" fill="#d4698a" opacity="0.65" transform="rotate(180)"/>
+          <circle r="10" fill="#9a3050" opacity="0.9"/>
+          <circle r="6" fill="#b8436a" opacity="0.7"/>
+        </g>
+        <!-- Leaves -->
+        <ellipse cx="40" cy="130" rx="22" ry="10" fill="#7a9c72" opacity="0.7" transform="rotate(-30,40,130)"/>
+        <ellipse cx="30" cy="150" rx="20" ry="9" fill="#5a7c58" opacity="0.6" transform="rotate(-45,30,150)"/>
+        <ellipse cx="120" cy="40" rx="18" ry="8" fill="#7a9c72" opacity="0.6" transform="rotate(20,120,40)"/>
+        <!-- Small buds -->
+        <circle cx="160" cy="60" r="8" fill="#eda0b8" opacity="0.75"/>
+        <ellipse cx="160" cy="60" rx="7" ry="5" fill="#d4698a" opacity="0.6" transform="rotate(30,160,60)"/>
+        <circle cx="50" cy="60" r="6" fill="#e8b0c0" opacity="0.65"/>
+        <!-- Stems -->
+        <path d="M90 120 Q60 155 30 170" fill="none" stroke="#7a9c72" stroke-width="2" opacity="0.6"/>
+        <path d="M100 70 Q130 40 150 25" fill="none" stroke="#7a9c72" stroke-width="1.5" opacity="0.5"/>
+        <!-- Berries -->
+        <circle cx="155" cy="175" r="5" fill="#b8436a" opacity="0.5"/>
+        <circle cx="168" cy="165" r="4" fill="#c0526f" opacity="0.45"/>
+        <circle cx="145" cy="168" r="3.5" fill="#d4698a" opacity="0.5"/>
+      </svg>
+    </div>
+    <div class="tr">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(100,95)">
+          <ellipse rx="28" ry="16" fill="#e8907a" opacity="0.8" transform="rotate(20)"/>
+          <ellipse rx="26" ry="14" fill="#d4788a" opacity="0.75" transform="rotate(65)"/>
+          <ellipse rx="24" ry="13" fill="#c0526f" opacity="0.7" transform="rotate(110)"/>
+          <ellipse rx="20" ry="11" fill="#d4698a" opacity="0.65" transform="rotate(155)"/>
+          <circle r="9" fill="#9a3050" opacity="0.85"/>
+          <circle r="5" fill="#c0526f" opacity="0.65"/>
+        </g>
+        <ellipse cx="160" cy="140" rx="20" ry="9" fill="#7a9c72" opacity="0.65" transform="rotate(40,160,140)"/>
+        <ellipse cx="145" cy="160" rx="18" ry="8" fill="#5a7c58" opacity="0.55" transform="rotate(55,145,160)"/>
+        <ellipse cx="60" cy="50" rx="16" ry="7" fill="#7a9c72" opacity="0.55" transform="rotate(-20,60,50)"/>
+        <circle cx="40" cy="100" r="7" fill="#eda0b8" opacity="0.7"/>
+        <circle cx="30" cy="120" r="5" fill="#e8b0c0" opacity="0.6"/>
+        <path d="M100 110 Q130 145 150 160" fill="none" stroke="#7a9c72" stroke-width="2" opacity="0.55"/>
+        <path d="M80 70 Q60 48 48 35" fill="none" stroke="#5a7c58" stroke-width="1.5" opacity="0.5"/>
+      </svg>
+    </div>
+    <div class="bl">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(85,80)">
+          <ellipse rx="26" ry="15" fill="#eda0b8" opacity="0.75" transform="rotate(15)"/>
+          <ellipse rx="24" ry="13" fill="#d4698a" opacity="0.7" transform="rotate(60)"/>
+          <ellipse rx="22" ry="12" fill="#c0526f" opacity="0.65" transform="rotate(105)"/>
+          <ellipse rx="19" ry="10" fill="#b8436a" opacity="0.6" transform="rotate(150)"/>
+          <circle r="8" fill="#8a2848" opacity="0.8"/>
+        </g>
+        <ellipse cx="40" cy="50" rx="20" ry="9" fill="#7a9c72" opacity="0.6" transform="rotate(-25,40,50)"/>
+        <ellipse cx="25" cy="70" rx="18" ry="8" fill="#6a8c62" opacity="0.55" transform="rotate(-40,25,70)"/>
+        <circle cx="150" cy="155" r="7" fill="#f2c8d6" opacity="0.7"/>
+        <circle cx="165" cy="140" r="5" fill="#eda0b8" opacity="0.6"/>
+        <path d="M85 95 Q55 65 30 48" fill="none" stroke="#7a9c72" stroke-width="1.8" opacity="0.55"/>
+      </svg>
+    </div>
+    <div class="br">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(100,85)">
+          <ellipse rx="27" ry="16" fill="#e8907a" opacity="0.72" transform="rotate(30)"/>
+          <ellipse rx="25" ry="14" fill="#d4698a" opacity="0.68" transform="rotate(75)"/>
+          <ellipse rx="23" ry="12" fill="#c0526f" opacity="0.62" transform="rotate(120)"/>
+          <ellipse rx="20" ry="11" fill="#b8436a" opacity="0.58" transform="rotate(165)"/>
+          <circle r="9" fill="#8a2848" opacity="0.78"/>
+        </g>
+        <ellipse cx="160" cy="50" rx="19" ry="8" fill="#7a9c72" opacity="0.58" transform="rotate(25,160,50)"/>
+        <ellipse cx="170" cy="70" rx="17" ry="7" fill="#6a8c62" opacity="0.5" transform="rotate(40,170,70)"/>
+        <circle cx="45" cy="150" r="6" fill="#f2c8d6" opacity="0.65"/>
+        <circle cx="35" cy="135" r="4.5" fill="#eda0b8" opacity="0.55"/>
+        <path d="M100 100 Q130 68 155 48" fill="none" stroke="#7a9c72" stroke-width="1.8" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="hero-eyebrow">A message from the heart</div>
+  <div class="hero-title">I'm Sorry</div>
+  <div class="hero-riya">Dear Riya</div>
+  <div class="hero-hearts">
+    <span>🤗</span><span>💕</span><span>🌸</span>
+  </div>
+  <div class="hero-sub">
+    You've always stepped forward for me. This time I want to step forward for you — and say this properly.
+  </div>
+  <div class="scroll-hint">
+    <span>scroll down</span>
+    <svg class="scroll-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+      <path d="M9 3v12M4 10l5 5 5-5" stroke="#d4698a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="floral-divider">
+  <svg width="100%" height="60" viewBox="0 0 480 60" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="30" x2="175" y2="30" stroke="#e8b8c8" stroke-width="0.5"/>
+    <g transform="translate(240,30)">
+      <ellipse rx="12" ry="7" fill="#d4698a" opacity="0.7" transform="rotate(0)"/>
+      <ellipse rx="11" ry="6" fill="#c0526f" opacity="0.65" transform="rotate(60)"/>
+      <ellipse rx="10" ry="5.5" fill="#b8436a" opacity="0.6" transform="rotate(120)"/>
+      <circle r="4.5" fill="#8a2848" opacity="0.8"/>
+      <circle r="2.5" fill="#b8436a" opacity="0.6"/>
+    </g>
+    <g transform="translate(208,30)">
+      <circle r="4" fill="#eda0b8" opacity="0.6"/>
+      <circle r="2.5" fill="#d4698a" opacity="0.5"/>
+    </g>
+    <g transform="translate(272,30)">
+      <circle r="4" fill="#eda0b8" opacity="0.6"/>
+      <circle r="2.5" fill="#d4698a" opacity="0.5"/>
+    </g>
+    <ellipse cx="195" cy="35" rx="12" ry="5" fill="#7a9c72" opacity="0.5" transform="rotate(-20,195,35)"/>
+    <ellipse cx="285" cy="35" rx="12" ry="5" fill="#7a9c72" opacity="0.5" transform="rotate(20,285,35)"/>
+    <line x1="305" y1="30" x2="480" y2="30" stroke="#e8b8c8" stroke-width="0.5"/>
+  </svg>
+</div>
+
+<!-- ══════ PHOTOS ══════ -->
+<section class="photo-section reveal">
+  <!-- Watermark floral -->
+  <div class="photo-section-bg">
+    <svg width="100%" height="100%" viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(240,210)">
+        <ellipse rx="80" ry="50" fill="#b8436a" transform="rotate(0)"/>
+        <ellipse rx="75" ry="45" fill="#c0526f" transform="rotate(40)"/>
+        <ellipse rx="70" ry="42" fill="#d4698a" transform="rotate(80)"/>
+        <ellipse rx="65" ry="38" fill="#c0526f" transform="rotate(120)"/>
+        <ellipse rx="60" ry="35" fill="#b8436a" transform="rotate(160)"/>
+        <circle r="30" fill="#8a2848"/>
+        <circle r="18" fill="#9a3050"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="section-title">Riyaajiiiiii 🌸</div>
+  <div class="photo-grid">
+    <!-- Slot 1 - wide -->
+    <div class="photo-slot" onclick="this.querySelector('input').click()">
+      <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+      <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      <span class="slot-icon" style="display:none;">🌸</span>
+      <span class="slot-text" style="display:none;">Tap to add her photo</span>
+      <input type="file" accept="image/*" onchange="loadImg(event,this.parentElement)">
+      <img src="IMG-20260410-WA0023.jpg" alt="Riya photo 1" style="display:block;">
+    </div>
+    <!-- Slot 2 -->
+    <div class="photo-slot" onclick="this.querySelector('input').click()">
+      <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+      <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      <span class="slot-icon" style="display:none;">💕</span>
+      <span class="slot-text" style="display:none;">Add another</span>
+      <input type="file" accept="image/*" onchange="loadImg(event,this.parentElement)">
+      <img src="IMG-20260313-WA0020.jpg" alt="Riya photo 2" style="display:block;">
+    </div>
+    <!-- Slot 3 -->
+    <div class="photo-slot" onclick="this.querySelector('input').click()">
+      <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+      <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      <span class="slot-icon" style="display:none;">✨</span>
+      <span class="slot-text" style="display:none;">One more</span>
+      <input type="file" accept="image/*" onchange="loadImg(event,this.parentElement)">
+      <img src="IMG-20260313-WA0025%20(2).jpg" alt="Riya photo 3" style="display:block;">
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="floral-divider">
+  <svg width="100%" height="56" viewBox="0 0 480 56" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="28" x2="160" y2="28" stroke="#e8b8c8" stroke-width="0.5"/>
+    <g transform="translate(240,28)">
+      <ellipse rx="10" ry="6" fill="#e8907a" opacity="0.65" transform="rotate(0)"/>
+      <ellipse rx="9" ry="5" fill="#d4698a" opacity="0.6" transform="rotate(72)"/>
+      <ellipse rx="8" ry="4.5" fill="#c0526f" opacity="0.55" transform="rotate(144)"/>
+      <circle r="4" fill="#9a3050" opacity="0.75"/>
+    </g>
+    <g transform="translate(210,28)"><circle r="3.5" fill="#eda0b8" opacity="0.55"/></g>
+    <g transform="translate(270,28)"><circle r="3.5" fill="#eda0b8" opacity="0.55"/></g>
+    <ellipse cx="190" cy="33" rx="10" ry="4" fill="#7a9c72" opacity="0.45" transform="rotate(-18,190,33)"/>
+    <ellipse cx="290" cy="33" rx="10" ry="4" fill="#7a9c72" opacity="0.45" transform="rotate(18,290,33)"/>
+    <line x1="320" y1="28" x2="480" y2="28" stroke="#e8b8c8" stroke-width="0.5"/>
+  </svg>
+</div>
+
+<!-- ══════ LETTER ══════ -->
+<section class="letter-section reveal">
+  <div class="section-title">From me to you 🤗 </div>
+  <div class="letter-card">
+    <div class="letter-deco">🌸</div>
+
+    <!-- Decorative rose in corner -->
+    <div class="letter-card-roses">
+      <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(70,70)">
+          <ellipse rx="35" ry="22" fill="#b8436a" transform="rotate(0)"/>
+          <ellipse rx="33" ry="20" fill="#c0526f" transform="rotate(45)"/>
+          <ellipse rx="30" ry="18" fill="#d4698a" transform="rotate(90)"/>
+          <ellipse rx="26" ry="16" fill="#c0526f" transform="rotate(135)"/>
+          <ellipse rx="22" ry="13" fill="#b8436a" transform="rotate(180)"/>
+          <circle r="12" fill="#8a2848"/>
+          <circle r="7" fill="#9a3050"/>
+        </g>
+        <ellipse cx="25" cy="105" rx="22" ry="10" fill="#7a9c72" transform="rotate(-30,25,105)"/>
+        <ellipse cx="15" cy="125" rx="20" ry="9" fill="#5a7c58" transform="rotate(-45,15,125)"/>
+      </svg>
+    </div>
+
+    <div class="letter-dear">Dearest Riya,</div>
+    <div class="letter-body">
+      <p>I owe you this — not just words, but the right words.</p>
+      <p>
+        You were in the middle of something important. You were <mark class="mark">trying to fix a problem for someone</mark>, doing what you always do — showing up, stepping in, solving things quietly. And me?
+        I looked at a screenshot, saw you talking to someone else, and felt ignored. I let that feeling grow into something unfair.
+      </p>
+      <p>
+        What I didn't see in that moment was how much <mark class="mark">you always step forward for me</mark>. You call when you're on duty. You call while you're on your bike. You reach out first, every single time. You understand me in ways most people never bother to try.
+      </p>
+      <p>
+        And when I reacted the way I did — you didn't argue. You didn't beg. You just explained everything, calmly, clearly, because that's who you are. <mark class="mark">No drama. No games.</mark> Just pure, honest Riya.
+      </p>
+      <p>
+        That hurt me more than any fight could — realizing that you'd handled it with so much grace, and I hadn't given you even a fraction of that trust back.
+      </p>
+      <p>
+        And then — even in a bad mood that night — you said goodbye to me like this:<br>
+        <em style="color:var(--rose2);">"Good night ✨ Sweet dreams 😘 See you soon 💕 Tata ✨"</em>
+      </p>
+      <p>
+        That's not just a friend, Riya. That's something rare. And I almost didn't see it.
+      </p>
+      <p>
+        I'm sorry I didn't trust you. I'm sorry I made you feel like <em>with you, things always go sideways.</em> You deserve someone who sees your heart first — and I wasn't that, in that moment.
+      </p>
+      <p style="margin-bottom:0;">
+        But I want to be. Starting now. 🤗
+      </p>
+    </div>
+    <div class="letter-from">— Always yours, bestie 🤍</div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="floral-divider">
+  <svg width="100%" height="60" viewBox="0 0 480 60" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="30" x2="158" y2="30" stroke="#f2c8a8" stroke-width="0.5"/>
+    <g transform="translate(240,30)">
+      <ellipse rx="11" ry="7" fill="#e8907a" opacity="0.65" transform="rotate(0)"/>
+      <ellipse rx="10" ry="6" fill="#d4788a" opacity="0.6" transform="rotate(60)"/>
+      <ellipse rx="9" ry="5" fill="#c9964a" opacity="0.55" transform="rotate(120)"/>
+      <circle r="4" fill="#9a5030" opacity="0.7"/>
+    </g>
+    <g transform="translate(213,30)"><circle r="3" fill="#f2c8a8" opacity="0.6"/></g>
+    <g transform="translate(267,30)"><circle r="3" fill="#f2c8a8" opacity="0.6"/></g>
+    <ellipse cx="193" cy="35" rx="11" ry="5" fill="#7a9c72" opacity="0.45" transform="rotate(-22,193,35)"/>
+    <ellipse cx="287" cy="35" rx="11" ry="5" fill="#7a9c72" opacity="0.45" transform="rotate(22,287,35)"/>
+    <line x1="322" y1="30" x2="480" y2="30" stroke="#f2c8a8" stroke-width="0.5"/>
+  </svg>
+</div>
+
+<!-- ══════ LOVE CARDS ══════ -->
+<section class="love-section reveal">
+  <!-- Background roses watermark -->
+  <div class="love-bg">
+    <svg width="100%" height="100%" viewBox="0 0 480 600" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(100,150)">
+        <ellipse rx="50" ry="32" fill="#b8436a" transform="rotate(0)"/><ellipse rx="45" ry="28" fill="#c0526f" transform="rotate(60)"/><ellipse rx="40" ry="24" fill="#d4698a" transform="rotate(120)"/><circle r="18" fill="#8a2848"/>
+      </g>
+      <g transform="translate(380,400)">
+        <ellipse rx="45" ry="28" fill="#e8907a" transform="rotate(30)"/><ellipse rx="40" ry="24" fill="#d4698a" transform="rotate(90)"/><ellipse rx="35" ry="20" fill="#c0526f" transform="rotate(150)"/><circle r="16" fill="#8a2848"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="section-title">What I love about you 🌼</div>
+  <div class="love-grid">
+
+    <!-- Card 1 -->
+    <div class="love-card" onclick="tapCard(this)">
+      <div class="lc-flower">
+        <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(26,26)">
+            <ellipse rx="11" ry="7" fill="#d4698a" opacity="0.85" transform="rotate(0)"/>
+            <ellipse rx="10" ry="6" fill="#c0526f" opacity="0.8" transform="rotate(45)"/>
+            <ellipse rx="9" ry="5.5" fill="#b8436a" opacity="0.75" transform="rotate(90)"/>
+            <ellipse rx="8" ry="5" fill="#c0526f" opacity="0.7" transform="rotate(135)"/>
+            <circle r="5" fill="#8a2848" opacity="0.9"/>
+            <circle r="3" fill="#c0526f" opacity="0.65"/>
+          </g>
+          <ellipse cx="10" cy="38" rx="8" ry="3.5" fill="#7a9c72" opacity="0.6" transform="rotate(-30,10,38)"/>
+          <ellipse cx="42" cy="38" rx="8" ry="3.5" fill="#7a9c72" opacity="0.6" transform="rotate(30,42,38)"/>
+        </svg>
+      </div>
+      <div class="lc-text">You call even from your bike, just to check in</div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="love-card" onclick="tapCard(this)">
+      <div class="lc-flower">
+        <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(26,26)">
+            <ellipse rx="10" ry="6.5" fill="#e8907a" opacity="0.85" transform="rotate(0)"/>
+            <ellipse rx="9" ry="6" fill="#d4788a" opacity="0.8" transform="rotate(60)"/>
+            <ellipse rx="8.5" ry="5.5" fill="#e8907a" opacity="0.75" transform="rotate(120)"/>
+            <circle r="5" fill="#a04030" opacity="0.85"/>
+            <circle r="2.5" fill="#e8907a" opacity="0.6"/>
+          </g>
+          <ellipse cx="14" cy="40" rx="8" ry="3.5" fill="#6a8c62" opacity="0.55" transform="rotate(-25,14,40)"/>
+          <ellipse cx="38" cy="40" rx="8" ry="3.5" fill="#6a8c62" opacity="0.55" transform="rotate(25,38,40)"/>
+        </svg>
+      </div>
+      <div class="lc-text">You understand me better than I understand myself</div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="love-card" onclick="tapCard(this)">
+      <div class="lc-flower">
+        <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(26,26)">
+            <ellipse rx="10" ry="6" fill="#c9964a" opacity="0.8" transform="rotate(0)"/>
+            <ellipse rx="9" ry="5.5" fill="#e8b870" opacity="0.75" transform="rotate(72)"/>
+            <ellipse rx="8.5" ry="5" fill="#c9964a" opacity="0.7" transform="rotate(144)"/>
+            <ellipse rx="8" ry="4.8" fill="#e8b870" opacity="0.65" transform="rotate(216)"/>
+            <ellipse rx="7.5" ry="4.5" fill="#c9964a" opacity="0.6" transform="rotate(288)"/>
+            <circle r="5" fill="#8a6020" opacity="0.85"/>
+          </g>
+          <ellipse cx="10" cy="36" rx="9" ry="4" fill="#7a9c72" opacity="0.55" transform="rotate(-20,10,36)"/>
+        </svg>
+      </div>
+      <div class="lc-text">Your joy is contagious — you light up every conversation</div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="love-card" onclick="tapCard(this)">
+      <div class="lc-flower">
+        <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(26,26)">
+            <ellipse rx="11" ry="6.5" fill="#eda0b8" opacity="0.85" transform="rotate(0)"/>
+            <ellipse rx="10" ry="6" fill="#d4698a" opacity="0.8" transform="rotate(45)"/>
+            <ellipse rx="9" ry="5.5" fill="#eda0b8" opacity="0.75" transform="rotate(90)"/>
+            <ellipse rx="8.5" ry="5" fill="#d4698a" opacity="0.7" transform="rotate(135)"/>
+            <circle r="5" fill="#9a3050" opacity="0.9"/>
+            <circle r="2.5" fill="#d4698a" opacity="0.6"/>
+          </g>
+          <ellipse cx="40" cy="38" rx="8" ry="3.5" fill="#6a8c62" opacity="0.55" transform="rotate(22,40,38)"/>
+        </svg>
+      </div>
+      <div class="lc-text">No drama, no games — pure, honest Riya. Always</div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="love-card" onclick="tapCard(this)">
+      <div class="lc-flower">
+        <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(26,26)">
+            <ellipse rx="10" ry="6" fill="#7a9c72" opacity="0.8" transform="rotate(0)"/>
+            <ellipse rx="9" ry="5.5" fill="#5a8058" opacity="0.75" transform="rotate(60)"/>
+            <ellipse rx="8.5" ry="5" fill="#7a9c72" opacity="0.7" transform="rotate(120)"/>
+            <ellipse rx="8" ry="4.8" fill="#5a8058" opacity="0.65" transform="rotate(180)"/>
+            <ellipse rx="7.5" ry="4.5" fill="#7a9c72" opacity="0.6" transform="rotate(240)"/>
+            <ellipse rx="7" ry="4" fill="#5a8058" opacity="0.55" transform="rotate(300)"/>
+            <circle r="5" fill="#3a5c38" opacity="0.85"/>
+          </g>
+        </svg>
+      </div>
+      <div class="lc-text">You step forward every time, even when I forget to</div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="love-card" onclick="tapCard(this)">
+      <div class="lc-flower">
+        <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(26,26)">
+            <ellipse rx="10" ry="6" fill="#d4698a" opacity="0.8" transform="rotate(0)"/>
+            <ellipse rx="9.5" ry="5.8" fill="#e8907a" opacity="0.75" transform="rotate(51)"/>
+            <ellipse rx="9" ry="5.5" fill="#d4698a" opacity="0.7" transform="rotate(102)"/>
+            <ellipse rx="8.5" ry="5.2" fill="#e8907a" opacity="0.65" transform="rotate(153)"/>
+            <ellipse rx="8" ry="5" fill="#d4698a" opacity="0.6" transform="rotate(204)"/>
+            <ellipse rx="7.5" ry="4.8" fill="#e8907a" opacity="0.55" transform="rotate(255)"/>
+            <ellipse rx="7" ry="4.5" fill="#d4698a" opacity="0.5" transform="rotate(306)"/>
+            <circle r="5.5" fill="#8a2848" opacity="0.88"/>
+            <circle r="2.5" fill="#d4698a" opacity="0.55"/>
+          </g>
+          <ellipse cx="10" cy="40" rx="7" ry="3" fill="#7a9c72" opacity="0.5" transform="rotate(-28,10,40)"/>
+          <ellipse cx="42" cy="40" rx="7" ry="3" fill="#7a9c72" opacity="0.5" transform="rotate(28,42,40)"/>
+        </svg>
+      </div>
+      <div class="lc-text">Even in a bad mood, you still sent me the sweetest goodnight</div>
+    </div>
+
+  </div>
+  <p style="text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--rose3);margin-top:18px;letter-spacing:0.5px;">tap each one 🌸</p>
+</section>
+
+<!-- DIVIDER -->
+<div class="floral-divider">
+  <svg width="100%" height="56" viewBox="0 0 480 56" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="28" x2="165" y2="28" stroke="#b0c8b0" stroke-width="0.5"/>
+    <g transform="translate(240,28)">
+      <ellipse rx="10" ry="6" fill="#7a9c72" opacity="0.65" transform="rotate(0)"/>
+      <ellipse rx="9" ry="5.5" fill="#5a8058" opacity="0.6" transform="rotate(60)"/>
+      <ellipse rx="8.5" ry="5" fill="#7a9c72" opacity="0.55" transform="rotate(120)"/>
+      <circle r="4" fill="#3a5c38" opacity="0.7"/>
+    </g>
+    <circle cx="215" cy="28" r="3" fill="#a8c4a0" opacity="0.55"/>
+    <circle cx="265" cy="28" r="3" fill="#a8c4a0" opacity="0.55"/>
+    <ellipse cx="195" cy="33" rx="10" ry="4" fill="#c9964a" opacity="0.35" transform="rotate(-18,195,33)"/>
+    <ellipse cx="285" cy="33" rx="10" ry="4" fill="#c9964a" opacity="0.35" transform="rotate(18,285,33)"/>
+    <line x1="315" y1="28" x2="480" y2="28" stroke="#b0c8b0" stroke-width="0.5"/>
+  </svg>
+</div>
+
+<!-- ══════ GOODNIGHT ══════ -->
+<section class="goodnight-section reveal">
+  <div class="section-title" style="color:var(--peach);">Your goodnight 🌙</div>
+  <div class="goodnight-card">
+    <!-- Stars -->
+    <div class="gn-stars" id="stars"></div>
+    <!-- Rose on top -->
+    <div style="display:flex;justify-content:center;margin-bottom:20px;opacity:0.55;">
+      <svg width="80" height="60" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(40,32)">
+          <ellipse rx="18" ry="11" fill="#d4698a" transform="rotate(0)"/>
+          <ellipse rx="16" ry="10" fill="#c0526f" transform="rotate(45)"/>
+          <ellipse rx="14" ry="9" fill="#b8436a" transform="rotate(90)"/>
+          <ellipse rx="12" ry="8" fill="#c0526f" transform="rotate(135)"/>
+          <circle r="7" fill="#8a2848"/>
+          <circle r="4" fill="#9a3050"/>
+        </g>
+        <ellipse cx="14" cy="50" rx="12" ry="5" fill="#7a9c72" opacity="0.7" transform="rotate(-30,14,50)"/>
+        <ellipse cx="66" cy="50" rx="12" ry="5" fill="#7a9c72" opacity="0.7" transform="rotate(30,66,50)"/>
+      </svg>
+    </div>
+    <div class="gn-label">what you said — even after everything</div>
+    <div style="display:flex;justify-content:flex-start;padding:0 4px;">
+      <div class="gn-bubble">
+        <div class="gn-text">
+          Good night ✨😍🥰<br>
+          Sweet dreams 😘❤️💝🦋<br>
+          See you soon 💕🥰😍<br>
+          Tata ✨
+        </div>
+      </div>
+    </div>
+    <div class="gn-note">
+      She was having a rough day.<br>
+      She still said this to me — with every single emoji.<br>
+      <strong style="color:rgba(255,200,180,0.9);">That's not just a friend. That's a heart of gold.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="floral-divider">
+  <svg width="100%" height="56" viewBox="0 0 480 56" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="28" x2="162" y2="28" stroke="#e8c8a0" stroke-width="0.5"/>
+    <g transform="translate(240,28)">
+      <ellipse rx="10" ry="6.5" fill="#c9964a" opacity="0.7" transform="rotate(0)"/>
+      <ellipse rx="9" ry="5.8" fill="#e8b870" opacity="0.65" transform="rotate(72)"/>
+      <ellipse rx="8" ry="5" fill="#c9964a" opacity="0.6" transform="rotate(144)"/>
+      <circle r="4.5" fill="#8a6020" opacity="0.78"/>
+    </g>
+    <circle cx="214" cy="28" r="3.5" fill="#e8c8a0" opacity="0.6"/>
+    <circle cx="266" cy="28" r="3.5" fill="#e8c8a0" opacity="0.6"/>
+    <ellipse cx="194" cy="33" rx="10" ry="4" fill="#7a9c72" opacity="0.42" transform="rotate(-20,194,33)"/>
+    <ellipse cx="286" cy="33" rx="10" ry="4" fill="#7a9c72" opacity="0.42" transform="rotate(20,286,33)"/>
+    <line x1="318" y1="28" x2="480" y2="28" stroke="#e8c8a0" stroke-width="0.5"/>
+  </svg>
+</div>
+
+<!-- ══════ PROMISES ══════ -->
+<section class="promises-section reveal">
+  <!-- Background -->
+  <div class="promises-bg">
+    <svg width="100%" height="100%" viewBox="0 0 480 500" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(380,100)">
+        <ellipse rx="45" ry="28" fill="#c9964a" transform="rotate(20)"/>
+        <ellipse rx="40" ry="24" fill="#e8b870" transform="rotate(80)"/>
+        <circle r="18" fill="#8a6020"/>
+      </g>
+      <g transform="translate(80,380)">
+        <ellipse rx="40" ry="25" fill="#d4698a" transform="rotate(-15)"/>
+        <ellipse rx="35" ry="21" fill="#c0526f" transform="rotate(40)"/>
+        <circle r="16" fill="#8a2848"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="section-title">My promises to you 🤍</div>
+  <div class="promise-list">
+    <div class="promise-item" onclick="toggleP(this)">
+      <div class="promise-check">✓</div>
+      <div class="promise-text">I will trust you first, before my own insecurities ever get a vote.</div>
+    </div>
+    <div class="promise-item" onclick="toggleP(this)">
+      <div class="promise-check">✓</div>
+      <div class="promise-text">When you're solving something, I'll wait — because you always come back.</div>
+    </div>
+    <div class="promise-item" onclick="toggleP(this)">
+      <div class="promise-check">✓</div>
+      <div class="promise-text">I'll give you the same patience you've always given me, without question.</div>
+    </div>
+    <div class="promise-item" onclick="toggleP(this)">
+      <div class="promise-check">✓</div>
+      <div class="promise-text">I will understand you, not just hear you. There's a difference, and I know that now.</div>
+    </div>
+    <div class="promise-item" onclick="toggleP(this)">
+      <div class="promise-check">✓</div>
+      <div class="promise-text">I am not losing this friendship. Not now. Not ever. 🤗</div>
+    </div>
+  </div>
+  <p style="text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--rose3);margin-top:18px;letter-spacing:0.5px;">tap to seal each promise 🌸</p>
+</section>
+
+<!-- DIVIDER -->
+<div class="floral-divider">
+  <svg width="100%" height="60" viewBox="0 0 480 60" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="30" x2="155" y2="30" stroke="#e8b8c8" stroke-width="0.5"/>
+    <!-- Full bloom center -->
+    <g transform="translate(240,30)">
+      <ellipse rx="13" ry="8" fill="#d4698a" opacity="0.75" transform="rotate(0)"/>
+      <ellipse rx="12" ry="7" fill="#c0526f" opacity="0.7" transform="rotate(40)"/>
+      <ellipse rx="11" ry="6.5" fill="#b8436a" opacity="0.65" transform="rotate(80)"/>
+      <ellipse rx="10" ry="6" fill="#c0526f" opacity="0.6" transform="rotate(120)"/>
+      <ellipse rx="9" ry="5.5" fill="#b8436a" opacity="0.55" transform="rotate(160)"/>
+      <circle r="6" fill="#8a2848" opacity="0.85"/>
+      <circle r="3.5" fill="#b8436a" opacity="0.6"/>
+    </g>
+    <g transform="translate(207,30)"><circle r="3.5" fill="#eda0b8" opacity="0.6"/></g>
+    <g transform="translate(273,30)"><circle r="3.5" fill="#eda0b8" opacity="0.6"/></g>
+    <ellipse cx="188" cy="35" rx="12" ry="5" fill="#7a9c72" opacity="0.5" transform="rotate(-22,188,35)"/>
+    <ellipse cx="292" cy="35" rx="12" ry="5" fill="#7a9c72" opacity="0.5" transform="rotate(22,292,35)"/>
+    <ellipse cx="170" cy="30" rx="5" ry="3" fill="#7a9c72" opacity="0.35" transform="rotate(-10,170,30)"/>
+    <ellipse cx="310" cy="30" rx="5" ry="3" fill="#7a9c72" opacity="0.35" transform="rotate(10,310,30)"/>
+    <line x1="325" y1="30" x2="480" y2="30" stroke="#e8b8c8" stroke-width="0.5"/>
+  </svg>
+</div>
+
+<!-- ══════ FINAL ══════ -->
+<section class="final-section reveal">
+  <!-- Spinning rose -->
+  <div class="final-big-flower">
+    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(50,50)">
+        <!-- Outer petals -->
+        <ellipse rx="22" ry="13" fill="#e8c8d4" opacity="0.7" transform="rotate(0)"/>
+        <ellipse rx="21" ry="12" fill="#f2d8e4" opacity="0.65" transform="rotate(30)"/>
+        <ellipse rx="20" ry="11" fill="#e8c8d4" opacity="0.6" transform="rotate(60)"/>
+        <ellipse rx="19" ry="10.5" fill="#f2d8e4" opacity="0.58" transform="rotate(90)"/>
+        <ellipse rx="18" ry="10" fill="#e8c8d4" opacity="0.55" transform="rotate(120)"/>
+        <ellipse rx="17" ry="9.5" fill="#f2d8e4" opacity="0.52" transform="rotate(150)"/>
+        <!-- Mid petals -->
+        <ellipse rx="16" ry="9" fill="#eda0b8" opacity="0.8" transform="rotate(15)"/>
+        <ellipse rx="15" ry="8.5" fill="#e090a8" opacity="0.75" transform="rotate(55)"/>
+        <ellipse rx="14" ry="8" fill="#eda0b8" opacity="0.72" transform="rotate(95)"/>
+        <ellipse rx="13" ry="7.5" fill="#e090a8" opacity="0.68" transform="rotate(135)"/>
+        <ellipse rx="12" ry="7" fill="#eda0b8" opacity="0.65" transform="rotate(175)"/>
+        <!-- Inner petals -->
+        <ellipse rx="11" ry="6.5" fill="#d4698a" opacity="0.85" transform="rotate(0)"/>
+        <ellipse rx="10" ry="6" fill="#c0526f" opacity="0.82" transform="rotate(45)"/>
+        <ellipse rx="9" ry="5.5" fill="#d4698a" opacity="0.78" transform="rotate(90)"/>
+        <ellipse rx="8.5" ry="5" fill="#c0526f" opacity="0.75" transform="rotate(135)"/>
+        <!-- Center -->
+        <circle r="8" fill="#8a2848" opacity="0.92"/>
+        <circle r="5" fill="#9a3050" opacity="0.8"/>
+        <circle r="3" fill="#c0526f" opacity="0.6"/>
+        <!-- Leaves -->
+        <ellipse rx="18" ry="7" fill="#7a9c72" opacity="0.6" transform="rotate(-15) translate(28,8)"/>
+        <ellipse rx="16" ry="6" fill="#5a8058" opacity="0.55" transform="rotate(165) translate(28,8)"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="final-verse">
+    You are one of those rare people<br>
+    who makes the world feel <strong>lighter</strong><br>
+    just by being in it.<br><br>
+    I don't take that for granted anymore.<br>
+    I promise I <strong>won't</strong>.<br><br>
+    You're my person, Riya. <br><br>
+    🥰😘😍😚☺️😊💛🤗🥰😘🥰😘🥰😘🥰😘<br><br>
+  
+  </div>
+
+  <button class="sorry-btn" onclick="bigSorry(this)">
+    I'm truly sorry 🌸
+  </button>
+  <div class="tap-hint">tap me — for a surprise 💝</div>
+
+  <!-- Bottom floral -->
+  <div style="display:flex;justify-content:center;margin-top:48px;opacity:0.3;">
+    <svg width="260" height="80" viewBox="0 0 260 80" xmlns="http://www.w3.org/2000/svg">
+      <!-- Left spray -->
+      <ellipse cx="50" cy="60" rx="22" ry="8" fill="#7a9c72" transform="rotate(-30,50,60)"/>
+      <ellipse cx="30" cy="70" rx="18" ry="7" fill="#5a8058" transform="rotate(-45,30,70)"/>
+      <circle cx="70" cy="40" r="7" fill="#d4698a"/>
+      <ellipse cx="70" cy="40" rx="6" ry="4" fill="#eda0b8" transform="rotate(30,70,40)"/>
+      <circle cx="50" cy="30" r="5" fill="#e8907a"/>
+      <!-- Center big rose -->
+      <g transform="translate(130,38)">
+        <ellipse rx="16" ry="9" fill="#b8436a" transform="rotate(0)"/>
+        <ellipse rx="14" ry="8" fill="#c0526f" transform="rotate(45)"/>
+        <ellipse rx="12" ry="7" fill="#d4698a" transform="rotate(90)"/>
+        <ellipse rx="10" ry="6" fill="#c0526f" transform="rotate(135)"/>
+        <circle r="7" fill="#8a2848"/>
+        <circle r="4" fill="#9a3050"/>
+      </g>
+      <ellipse cx="110" cy="62" rx="18" ry="7" fill="#7a9c72" transform="rotate(-20,110,62)"/>
+      <ellipse cx="150" cy="62" rx="18" ry="7" fill="#7a9c72" transform="rotate(20,150,62)"/>
+      <!-- Right spray -->
+      <ellipse cx="210" cy="60" rx="22" ry="8" fill="#7a9c72" transform="rotate(30,210,60)"/>
+      <ellipse cx="230" cy="70" rx="18" ry="7" fill="#5a8058" transform="rotate(45,230,70)"/>
+      <circle cx="190" cy="40" r="7" fill="#d4698a"/>
+      <ellipse cx="190" cy="40" rx="6" ry="4" fill="#eda0b8" transform="rotate(-30,190,40)"/>
+      <circle cx="210" cy="30" r="5" fill="#e8907a"/>
+      <!-- Berries -->
+      <circle cx="90" cy="72" r="4" fill="#b8436a" opacity="0.7"/>
+      <circle cx="100" cy="68" r="3" fill="#c0526f" opacity="0.65"/>
+      <circle cx="170" cy="72" r="4" fill="#b8436a" opacity="0.7"/>
+      <circle cx="160" cy="68" r="3" fill="#c0526f" opacity="0.65"/>
+    </svg>
+  </div>
+</section>
+
+<script>
+// ── PETALS ──
+const petalSVGs = [
+  `<svg viewBox="0 0 20 24" xmlns="http://www.w3.org/2000/svg"><ellipse cx="10" cy="12" rx="7" ry="11" fill="{c}" opacity="0.85"/></svg>`,
+  `<svg viewBox="0 0 18 22" xmlns="http://www.w3.org/2000/svg"><ellipse cx="9" cy="11" rx="6" ry="10" fill="{c}" opacity="0.8"/></svg>`,
+  `<svg viewBox="0 0 22 28" xmlns="http://www.w3.org/2000/svg"><path d="M11 2 Q18 8 16 18 Q11 26 6 18 Q4 8 11 2Z" fill="{c}" opacity="0.75"/></svg>`,
+];
+const petalColors = ['#e8b8c8','#f2c8d6','#d4698a','#eda0b8','#f5d8e0','#e8c0a8','#f2d0b8'];
+function createPetal(){
+  const el = document.createElement('div');
+  el.className = 'p';
+  const svg = petalSVGs[Math.floor(Math.random()*petalSVGs.length)]
+    .replace('{c}', petalColors[Math.floor(Math.random()*petalColors.length)]);
+  const size = 10 + Math.random()*14;
+  el.innerHTML = svg;
+  el.style.cssText = `left:${Math.random()*100}%;width:${size}px;height:${size}px;animation-duration:${8+Math.random()*10}s;animation-delay:${Math.random()*8}s;transform:rotate(${Math.random()*360}deg);`;
+  document.getElementById('petals').appendChild(el);
+  setTimeout(()=>el.remove(), 20000);
+}
+for(let i=0;i<18;i++) createPetal();
+setInterval(createPetal, 1400);
+
+// ── STARS in goodnight ──
+function makeStars(){
+  const c = document.getElementById('stars');
+  if(!c) return;
+  for(let i=0;i<60;i++){
+    const s = document.createElement('div');
+    s.className = 'gn-star';
+    const sz = 1+Math.random()*2.5;
+    s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-duration:${1.5+Math.random()*2.5}s;animation-delay:${Math.random()*3}s;`;
+    c.appendChild(s);
+  }
+}
+makeStars();
+
+// ── PHOTO UPLOAD ──
+function loadImg(e,slot){
+  const f = e.target.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = ev => {
+    const img = slot.querySelector('img');
+    img.src = ev.target.result;
+    img.style.display = 'block';
+    slot.querySelector('.slot-icon').style.display = 'none';
+    slot.querySelector('.slot-text').style.display = 'none';
+  };
+  r.readAsDataURL(f);
+}
+
+// ── TAP LOVE CARDS ──
+const burstEmoji = ['🌸','💕','✨','🤗 ','💝','🌷','🤍'];
+function tapCard(el){
+  el.classList.toggle('lit');
+  const b = document.createElement('span');
+  b.className = 'lc-burst';
+  b.textContent = burstEmoji[Math.floor(Math.random()*burstEmoji.length)];
+  el.appendChild(b);
+  setTimeout(()=>b.remove(), 800);
+}
+
+// ── PROMISES ──
+function toggleP(el){
+  el.classList.toggle('done');
+}
+
+// ── CONFETTI + HEARTS ──
+const confettiColors = ['#d4698a','#e8907a','#c9964a','#7a9c72','#eda0b8','#f2c8d6','#e8b870','#b8436a','#f5d8e0'];
+function bigSorry(btn){
+  btn.textContent = 'She forgave you 🌸';
+  btn.style.background = 'linear-gradient(135deg,#7a9c72,#5a8058)';
+  setTimeout(()=>{btn.textContent='I\'m truly sorry 🌸'; btn.style.background='';},3000);
+
+  // Confetti burst
+  for(let i=0;i<80;i++){
+    setTimeout(()=>{
+      const c = document.createElement('div');
+      c.className = 'confetti-piece';
+      const sz = 6+Math.random()*10;
+      c.style.cssText = `left:${10+Math.random()*80}vw;top:0;width:${sz}px;height:${sz}px;background:${confettiColors[Math.floor(Math.random()*confettiColors.length)]};border-radius:${Math.random()>.5?'50%':'3px'};animation-duration:${1.8+Math.random()*2.2}s;animation-delay:${Math.random()*0.4}s;`;
+      document.body.appendChild(c);
+      setTimeout(()=>c.remove(),4500);
+    }, i*20);
+  }
+
+  // Extra petals flood
+  for(let j=0;j<12;j++) setTimeout(createPetal, j*120);
+}
+
+// ── SCROLL REVEAL ──
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
